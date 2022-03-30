@@ -1,0 +1,33 @@
+﻿/****** Object:  Table [dbo].[Magazine]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[Magazine](
+	[Id] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[Name] [nvarchar](500) NOT NULL,
+	[IndustryId] [int] NOT NULL,
+	[CreateDate] [datetime] NULL,
+	[UpdateDate] [datetime] NULL,
+	[IsActive] [bit] NOT NULL,
+	[Visible] [bit] NULL,
+	[IsOrganization] [bit] NULL,
+	[OrganizationId] [int] NULL,
+	[LabelId] [int] NULL,
+ CONSTRAINT [PK_Magazine] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE NONCLUSTERED INDEX [IX_Magazine] ON [dbo].[Magazine]
+(
+	[IndustryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_Magazine_1] ON [dbo].[Magazine]
+(
+	[LabelId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+ALTER TABLE [dbo].[Magazine] ADD  DEFAULT ((1)) FOR [Visible]
+ALTER TABLE [dbo].[Magazine]  WITH CHECK ADD  CONSTRAINT [Fk_Magazine_Label] FOREIGN KEY([LabelId])
+REFERENCES [dbo].[Label] ([Id])
+ALTER TABLE [dbo].[Magazine] CHECK CONSTRAINT [Fk_Magazine_Label]

@@ -1,0 +1,20 @@
+﻿/****** Object:  Table [dbo].[RssFeedItemTag]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[RssFeedItemTag](
+	[RssFeedItemId] [int] NOT NULL,
+	[TagId] [int] NOT NULL,
+	[ConfidenceLevel] [int] NULL,
+	[ConfidenceScore] [float] NULL,
+ CONSTRAINT [PK_RssFeedItemTag] PRIMARY KEY CLUSTERED 
+(
+	[RssFeedItemId] ASC,
+	[TagId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [Ak_RssFeedItemTag] UNIQUE NONCLUSTERED 
+(
+	[RssFeedItemId] ASC,
+	[TagId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
