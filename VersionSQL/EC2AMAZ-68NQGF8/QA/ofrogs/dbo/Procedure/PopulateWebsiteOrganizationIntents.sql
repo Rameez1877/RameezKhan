@@ -11,7 +11,7 @@ AS
 BEGIN
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED   
 
-DECLARE @OrganizationId INT
+DECLARE @OrganizationId BIGINT
 
 DECLARE Intents CURSOR FOR SELECT OrganizationId FROM WebsiteOrganizations
 
@@ -50,7 +50,7 @@ FETCH NEXT FROM Intents INTO @OrganizationId
 CLOSE Intents
 DEALLOCATE Intents
 
-UPDATE dbo.WebsiteOrganizationIntents SET Team =c.TeamName FROM cache.OrganizationTeams c
-WHERE dbo.WebsiteOrganizationIntents.OrganizationId = c.OrganizationId
+--UPDATE dbo.WebsiteOrganizationIntents SET Team =c.TeamName FROM cache.OrganizationTeams c
+--WHERE dbo.WebsiteOrganizationIntents.OrganizationId = c.OrganizationId
 
 END;
