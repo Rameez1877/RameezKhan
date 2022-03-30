@@ -41,10 +41,10 @@ SELECT DISTINCT
 		OrganizationId IN (SELECT OrganizationId FROM  dbo.WebsiteOrganizations)
 
 
-UPDATE dbo.WebsiteOrganizationContacts SET Team = TeamName FRom  cache.OrganizationTeams WHERE 
-OrganizationTeams.OrganizationId =WebsiteOrganizationContacts.OrganizationId
+--UPDATE dbo.WebsiteOrganizationContacts SET Team = TeamName FRom  cache.OrganizationTeams WHERE 
+--OrganizationTeams.OrganizationId =WebsiteOrganizationContacts.OrganizationId
 
-UPDATE dbo.WebsiteOrganizationContacts SET Functionality = Functionality FRom  dbo.McDecisionmakerlist m WHERE 
-m.DecisionMakerId = dbo.WebsiteOrganizationContacts.DecisionMakerId
+--UPDATE dbo.WebsiteOrganizationContacts SET Functionality = Functionality FRom  dbo.McDecisionmakerlist m WHERE 
+--m.DecisionMakerId = dbo.WebsiteOrganizationContacts.DecisionMakerId
 
 END;
