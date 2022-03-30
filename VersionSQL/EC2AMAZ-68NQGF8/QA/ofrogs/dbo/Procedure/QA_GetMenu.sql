@@ -12,7 +12,7 @@ AS
 */
 BEGIN
     DECLARE -- @RoleId int = 0,
-    @CustomerType VARCHAR(20);
+    @CustomerType VARCHAR(500);
     SELECT
         -- @RoleId = AppRoleId,
         @CustomerType = CustomerType
